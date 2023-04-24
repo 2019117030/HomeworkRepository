@@ -1,6 +1,67 @@
 body {
     background-color: #f2f2f2;
     font-family: Arial, sans-serif;
+    margin-top: 20%;
+}
+
+span {
+    text-align: center;
+}
+
+
+/* 헤더의 제목에 애니메이션 효과를 적용하는 CSS */
+
+.header-title {
+    animation-duration: 2s;
+    animation-name: slideLeft;
+    animation-timing-function: linear;
+    white-space: nowrap;
+    /* 제목이 한 줄에 표시되도록 설정 */
+    overflow: hidden;
+    /* 제목이 넘칠 경우 숨김 처리 */
+}
+
+
+/* @keyframes를 사용하여 애니메이션의 시작과 끝을 정의하는 CSS */
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(60%);
+        /* 시작 위치: 오른쪽 끝 */
+    }
+    100% {
+        transform: translateX(20%);
+        /* 끝 위치: 왼쪽 끝 */
+    }
+}
+
+
+/* 내비게이터를 감싸는 부모 컨테이너에 flex 속성을 적용 */
+
+.navigator-container {
+    display: flex;
+    flex-direction: row;
+    /* 가로 방향으로 정렬 */
+    flex-wrap: nowrap;
+    /* 한 줄에 모든 메뉴를 표시하도록 설정 */
+    justify-content: space-between;
+    /* 메뉴 간의 간격을 균등하게 설정 */
+}
+
+
+/* 내비게이터의 각 메뉴에 대한 스타일 설정 */
+
+.navigator-item {
+    flex: 1;
+    /* 각 메뉴 아이템이 동일한 너비를 가지도록 설정 */
+    padding: 10px;
+    /* 메뉴 아이템의 내부 여백 설정 */
+    text-align: center;
+    /* 메뉴 아이템 안의 텍스트 가운데 정렬 */
+    background-color: lightgray;
+    /* 메뉴 아이템의 배경색 설정 */
+    cursor: pointer;
+    /* 포인터 커서 설정 */
 }
 
 p {
@@ -10,21 +71,45 @@ p {
 
 h1 {
     text-align: center;
-    margin-top: 50px;
     font-size: 50px;
 }
 
 h2 {
     text-align: center;
-    margin-top: 50px;
     font-size: 30px;
     color: cornflowerblue;
 }
 
+table {
+    table-layout: fixed;
+    font-size: 12px;
+    width: 100%;
+}
+
+table td {
+    width: 20%;
+    vertical-align: middle;
+    /* set vertical alignment */
+    text-align: center;
+    /* set horizontal alignment */
+}
+
+table input[type="checkbox"] {
+    transform: scale(0.5);
+    /* Remove the margin between radio buttons and labels */
+    order: 1;
+    /* Set the order to place radio buttons after labels */
+}
+
+table input[type="radio"] {
+    transform: scale(0.5);
+    /* Remove the margin between radio buttons and labels */
+    order: 1;
+    /* Set the order to place radio buttons after labels */
+}
+
 form {
-    width: 400px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 500px;
     border: 1px solid #ccc;
     background-color: #fff;
 }
@@ -36,10 +121,9 @@ label {
 }
 
 button {
-    margin-top: 30px;
-    width: 45%;
+    width: 100%;
     height: 30px;
-    display: block;
+    display: flex;
 }
 
 .btnline {
@@ -53,9 +137,15 @@ hr {
 
 input {
     display: block;
-    margin: 0 auto;
+    margin-bottom: 8%;
     width: 100%;
     height: 30px;
+}
+
+form input[type="text"] {
+    width: 90%;
+    height: 30px;
+    display: block;
 }
 
 .confirm {
@@ -71,6 +161,85 @@ input {
 .link {
     background-color: cornflowerblue;
     display: inline;
+}
+
+#zodiac {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Adjust the number of columns as needed */
+    /* Add spacing between the grid items as needed */
+}
+
+#zodiac label {
+    font-size: 12px;
+    /* Set the desired font size */
+    display: flex;
+    /* Use flexbox to align items in a row */
+    align-items: center;
+    /* Align items vertically in the center */
+}
+
+#zodiac input[type="radio"] {
+    transform: scale(0.5);
+    /* Set the desired scale factor to adjust size */
+    margin-left: 0;
+    /* Remove the margin between radio buttons and labels */
+    order: 1;
+    /* Set the order to place radio buttons after labels */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    text-align: center;
+    margin: 20%
+}
+
+.form-container label {
+    text-align: left;
+}
+
+.form-container form {
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container form input {
+    margin-bottom: 10px;
+}
+
+
+/* .form-container form>input,
+.form-container form>label {
+    margin: 5%
+} */
+
+#pet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#pet label {
+    font-size: 12px;
+    /* Set the desired font size */
+    display: flex;
+    /* Use flexbox to align items in a row */
+    align-items: center;
+    /* Align items vertically in the center */
+}
+
+#pet input[type="checkbox"] {
+    transform: scale(0.5);
+    /* Set the desired scale factor to adjust size */
+    margin-left: 0;
+    /* Remove the margin between radio buttons and labels */
+    order: 1;
+    /* Set the order to place radio buttons after labels */
 }
 
 input[type="text"],

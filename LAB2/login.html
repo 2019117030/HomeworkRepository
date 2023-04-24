@@ -2,32 +2,35 @@
 <html>
 
 <head>
-    <title>로그인 페이지</title>
+    <title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
-    <h1>돌팔이</h1>
-    <h2>반가워요 들어와요</h2>
-    <form>
-        <label for="email">이메일</label>
-        <input type="email" id="email" name="email" placeholder="이메일을 입력하세요." required>
+    <div class="container">
+        <div class="form-container">
+            <h1>돌팔이</h1>
+            <form>
+                <h2>반가워요 들어와요</h2>
+                <p class="btnline">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="이메일을 입력하세요." required>
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요." required>
 
-        <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요." required>
+                </p>
 
-        <p class="btnline">
-            <button type="submit" class="confirm">Sign in</button>
-        </p>
-    </form>
+                <p class="btnline">
+                    <button type="submit" class="confirm">Sign in</button>
+                </p>
+                <h2>또는</h2>
+                <p class="btnline">
+                    <button type="submit" class="link"><a href="signup.html">Sign up</a></button>
+                </p>
+            </form>
+        </div>
 
-    <h2>초면의 당신을 위해</h2>
-    <form>
-        <p class="btnline">
-            <button type="submit" class="link"><a href="signup.html">Sign up</a></button>
-        </p>
-
-    </form>
+    </div>
 </body>
 
 </html>
