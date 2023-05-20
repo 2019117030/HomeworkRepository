@@ -1,0 +1,861 @@
+body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    margin: 100px;
+    max-width: 1020px;
+    justify-content: center;
+}
+
+p>span {
+    font-size: 13px;
+    width: 30%;
+    text-align: center;
+}
+
+div p {
+    text-align: left;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh auto;
+}
+
+.form-container {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    /* 플렉스 컨테이너로 설정 */
+    flex-wrap: wrap;
+}
+
+.form-container div h1,
+div h1 {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36p;
+    text-align: center;
+    margin-top: 5%;
+    height: 130px;
+    width: 130px;
+    background-image: url('./images/title-stone.png');
+    background-size: contain;
+    /* 이미지가 h1 태그의 크기에 맞게 조절됩니다 */
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* 이미지가 반복되지 않도록 합니다 */
+}
+
+h1 a {
+    text-shadow: 2px 2px 4px #555;
+    /* 그림자 스타일 및 색상을 원하는 값으로 변경하세요 */
+}
+
+.form-container h2 {
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.form-container h3 {
+    text-align: left;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    max-width: 1020px;
+    width: 100%;
+    margin-inline: 5px;
+}
+
+.form-box-hr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    max-width: 1020px;
+    width: 100%;
+}
+
+#search-container {
+    display: flex;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#product-container {
+    display: flex;
+    width: inherit;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product {
+    flex: 1 0 21%;
+    height: 200px;
+    margin: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.product:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+
+.product .cost,
+.product .name {
+    display: none;
+    position: absolute;
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+
+.product .description {
+    display: none;
+    position: absolute;
+    color: black;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* font-size: small; */
+    font-size: 3pt;
+    text-align: center;
+    width: 80%;
+}
+
+.product .name {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product .cost {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product:hover .description,
+.product:hover .cost {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .product {
+        flex: 1 0 30%;
+    }
+}
+
+
+/*  */
+
+
+/* 첫 번째 호버 애니메이션 효과 */
+
+@keyframes img-scale {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(2);
+    }
+    /* 0% 상태에서 이미지를 1.2배 확대 */
+    99% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+    /* 100% 상태에서 이미지를 원래 크기로 복귀 */
+}
+
+
+/* 슬라이드 애니메이션 속성 설정 */
+
+.slide {
+    animation-name: slide;
+    /* 애니메이션 이름 설정 */
+    animation-duration: 2s;
+    /* 애니메이션 지속 시간 설정 */
+    animation-timing-function: ease;
+    /* 애니메이션 타이밍 함수 설정 (옵션) */
+    animation-fill-mode: forwards;
+    /* 애니메이션 종료 후 최종 상태를 유지하도록 설정 */
+}
+
+@media screen {
+    /* 네비게이터 스타일링 */
+    nav ul li a:hover {
+        background-color: #555;
+        /* 호버 시 배경 색상 설정 */
+    }
+    nav {
+        background-color: #333;
+        height: auto;
+        display: flex;
+        justify-content: left;
+    }
+    nav ul li a {
+        color: white;
+        padding: 15px 20px;
+    }
+    nav ul {
+        color: black;
+        display: flex
+    }
+}
+
+.form-box-hr p {
+    font-size: xx-small;
+}
+
+@media screen and (max-width: 800px) {
+    .text-slide {
+        text-align: center;
+    }
+    .form-box-hr .form-box {
+        flex-basis: calc(40% - 20px);
+        /* 한 줄에 2개의 요소를 배치 */
+    }
+    nav {
+        justify-content: center;
+        height: 50%;
+    }
+    nav ul li {
+        width: 33.3%;
+        text-align: center;
+    }
+    nav ul li a {
+        padding: 10px 10px;
+        font-size: medium;
+    }
+    nav ul {
+        justify-content: space-around;
+        display: flex
+    }
+    div p {
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #product-container {
+        display: inline;
+        width: inherit;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .form-container h3 {
+        font-size: 15px;
+        text-align: center;
+    }
+    .form-box-hr {
+        justify-content: center;
+    }
+    .form-box-hr .form-box {
+        flex-basis: calc(80% - 20px);
+        /* 한 줄에 2개의 요소를 배치 */
+    }
+    nav ul li a {
+        color: black;
+        padding: 10px 10px;
+        font-size: small;
+    }
+    nav {
+        background-color: #f8f8f8;
+        height: auto;
+        display: flex;
+        justify-content: left;
+    }
+    /* 네비게이터 스타일링 */
+    nav ul li a:hover {
+        font-weight: bold;
+        background-color: #f8f8f8;
+        /* 호버 시 배경 색상 설정 */
+    }
+}
+
+.nested {
+    display: flex;
+    min-height: 60%;
+    border: 1px solid #007bff;
+    flex-direction: row;
+    width: 95%;
+    /* 플렉스 컨테이너로 설정 */
+    flex-wrap: wrap;
+    /* 필요시 아이템을 여러 줄로 강제 개행 */
+    justify-content: left;
+    /* 가로 방향 중앙 정렬 */
+    padding: 10px;
+    margin: 10px;
+}
+
+.form-box form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    min-width: 40%
+}
+
+.form-box form p {
+    min-width: 100%;
+    text-align: center;
+}
+
+.form-box form label {
+    margin-bottom: 5px;
+}
+
+.form-box form input {
+    margin-bottom: 10px;
+    padding: 10px 10px;
+}
+
+.btnline span {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+hr {
+    border: none;
+    /* 기본 테두리 제거 */
+    border-top: 1px solid #007bff;
+    /* 원하는 색상 지정 */
+    height: 1px;
+    /* 수평선의 높이 조정 */
+    margin: 20px 0;
+    /* 수평선의 위아래 마진 조정 */
+}
+
+td label {
+    font-size: 13px;
+}
+
+td input {
+    margin-top: 10px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+
+/* 슬라이드 애니메이션 속성 설정 */
+
+.slide {
+    animation-name: slide;
+    /* 애니메이션 이름 설정 */
+    animation-duration: 2s;
+    /* 애니메이션 지속 시간 설정 */
+    animation-timing-function: ease;
+    /* 애니메이션 타이밍 함수 설정 (옵션) */
+    animation-fill-mode: forwards;
+    /* 애니메이션 종료 후 최종 상태를 유지하도록 설정 */
+}
+
+
+/* 텍스트에 슬라이드 애니메이션 적용 */
+
+.text-slide {
+    animation-name: slide;
+    /* 슬라이드 애니메이션 이름 설정 */
+    animation-duration: 2s;
+    /* 슬라이드 애니메이션 지속 시간 설정 */
+}
+
+nav ul {
+    list-style-type: none;
+    /* 리스트 마커 제거 */
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+nav ul li {
+    margin: 0 0px;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    /* 밑줄 제거 */
+}
+
+section {
+    height: 100vh;
+    /* 뷰포트 높이와 동일한 높이 설정 */
+    padding: 20px
+}
+
+body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    margin: 100px;
+    max-width: 1020px;
+    justify-content: center;
+}
+
+p>span {
+    font-size: 13px;
+    width: 30%;
+    text-align: center;
+}
+
+div p {
+    text-align: left;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh auto;
+}
+
+.form-container {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    /* 플렉스 컨테이너로 설정 */
+    flex-wrap: wrap;
+}
+
+.form-container h1 {
+    font-size: 36p;
+    margin-top: 5%;
+}
+
+.form-container h2 {
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.form-container h3 {
+    text-align: left;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    max-width: 1020px;
+    width: 100%;
+    margin-inline: 5px;
+}
+
+.form-box-hr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    max-width: 1020px;
+    width: 100%;
+}
+
+#search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#product-container {
+    display: flex;
+    width: inherit;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+
+.product .name {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product .cost {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product:hover .description,
+.product:hover .cost,
+.product:hover .name {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .product {
+        flex: 1 0 30%;
+    }
+}
+
+
+/*  */
+
+
+/* 첫 번째 호버 애니메이션 효과 */
+
+@keyframes img-scale {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(2);
+    }
+    /* 0% 상태에서 이미지를 1.2배 확대 */
+    99% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+    /* 100% 상태에서 이미지를 원래 크기로 복귀 */
+}
+
+
+/* 슬라이드 애니메이션 속성 설정 */
+
+.slide {
+    animation-name: slide;
+    /* 애니메이션 이름 설정 */
+    animation-duration: 2s;
+    /* 애니메이션 지속 시간 설정 */
+    animation-timing-function: ease;
+    /* 애니메이션 타이밍 함수 설정 (옵션) */
+    animation-fill-mode: forwards;
+    /* 애니메이션 종료 후 최종 상태를 유지하도록 설정 */
+}
+
+@media screen {
+    /* 네비게이터 스타일링 */
+    nav ul li a:hover {
+        background-color: #555;
+        /* 호버 시 배경 색상 설정 */
+    }
+    nav {
+        background-color: #333;
+        height: auto;
+        display: flex;
+        justify-content: left;
+    }
+    nav ul li a {
+        color: white;
+        padding: 15px 20px;
+    }
+    nav ul {
+        color: black;
+        display: flex
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .text-slide {
+        text-align: center;
+    }
+    .form-box-hr .form-box {
+        flex-basis: calc(40% - 20px);
+        /* 한 줄에 2개의 요소를 배치 */
+    }
+    nav {
+        justify-content: center;
+        height: 50%;
+    }
+    nav ul li {
+        width: 33.3%;
+        text-align: center;
+    }
+    nav ul li a {
+        padding: 10px 10px;
+        font-size: medium;
+    }
+    nav ul {
+        justify-content: space-around;
+        display: flex
+    }
+    div p {
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #product-container {
+        display: inline;
+        width: inherit;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .form-container h3 {
+        font-size: 15px;
+        text-align: center;
+    }
+    .form-box-hr {
+        justify-content: center;
+    }
+    .form-box-hr .form-box {
+        flex-basis: calc(80% - 20px);
+        /* 한 줄에 2개의 요소를 배치 */
+    }
+    nav ul li a {
+        color: black;
+        padding: 10px 10px;
+        font-size: small;
+    }
+    nav {
+        background-color: #f8f8f8;
+        height: auto;
+        display: flex;
+        justify-content: left;
+    }
+    /* 네비게이터 스타일링 */
+    nav ul li a:hover {
+        font-weight: bold;
+        background-color: #f8f8f8;
+        /* 호버 시 배경 색상 설정 */
+    }
+}
+
+.nested {
+    display: flex;
+    min-height: 60%;
+    border: 1px solid #007bff;
+    flex-direction: row;
+    width: 95%;
+    /* 플렉스 컨테이너로 설정 */
+    flex-wrap: wrap;
+    /* 필요시 아이템을 여러 줄로 강제 개행 */
+    justify-content: left;
+    /* 가로 방향 중앙 정렬 */
+    padding: 10px;
+    margin: 10px;
+}
+
+.form-box form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    min-width: 40%
+}
+
+.form-box form p {
+    min-width: 100%;
+    text-align: center;
+}
+
+.form-box form label {
+    margin-bottom: 5px;
+}
+
+.form-box form input {
+    margin-bottom: 10px;
+    padding: 10px 10px;
+}
+
+h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btnline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.btnline button {
+    width: 100%;
+    /* margin-right: 10px;
+    margin-left: 10px; */
+    /* 버튼의 색상을 상속받도록 설정합니다 */
+    /* 버튼의 밑줄을 제거합니다 */
+    margin-inline: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 3px;
+    font-style: normal;
+}
+
+.btnline button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btnline button:hover {
+    opacity: 0.8;
+}
+
+.btnline span {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+hr {
+    border: none;
+    /* 기본 테두리 제거 */
+    border-top: 1px solid #007bff;
+    /* 원하는 색상 지정 */
+    height: 1px;
+    /* 수평선의 높이 조정 */
+    margin: 20px 0;
+    /* 수평선의 위아래 마진 조정 */
+}
+
+td label {
+    font-size: 13px;
+}
+
+td input {
+    margin-top: 10px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+
+/* 슬라이드 애니메이션 속성 설정 */
+
+.slide {
+    animation-name: slide;
+    /* 애니메이션 이름 설정 */
+    animation-duration: 2s;
+    /* 애니메이션 지속 시간 설정 */
+    animation-timing-function: ease;
+    /* 애니메이션 타이밍 함수 설정 (옵션) */
+    animation-fill-mode: forwards;
+    /* 애니메이션 종료 후 최종 상태를 유지하도록 설정 */
+}
+
+
+/* 텍스트에 슬라이드 애니메이션 적용 */
+
+.text-slide {
+    animation-name: slide;
+    /* 슬라이드 애니메이션 이름 설정 */
+    animation-duration: 2s;
+    /* 슬라이드 애니메이션 지속 시간 설정 */
+}
+
+nav ul {
+    list-style-type: none;
+    /* 리스트 마커 제거 */
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+nav ul li {
+    margin: 0 0px;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    /* 밑줄 제거 */
+}
+
+section {
+    height: 100vh;
+    /* 뷰포트 높이와 동일한 높이 설정 */
+    padding: 20px
+}
+
+
+/* 새로운 CSS 코드 */
+
+#sort-select {
+    order: 2;
+}
+
+
+/* 기존의 CSS 코드 */
+
+#search-sort-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: inherit;
+}
+
+#search-input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#category-select,
+#sort-select {
+    width: 150px;
+}
+
+
+/* 기타 CSS 코드 */
