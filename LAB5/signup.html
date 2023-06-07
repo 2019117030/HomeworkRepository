@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>로그인 페이지</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-box">
+
+                <h1><a href="index.html">돌팔이</a></h1>
+                <h2>환영해요, 함께해요!</h2>
+                <form>
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="이메일을 입력하세요." required autofocus>
+
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요." required>
+
+                    <label for="password">비밀번호 확인</label>
+                    <input type="password" id="passwordconfirm" name="passwordconfirm" placeholder="비밀번호를 다시 한 번 입력 및 확인해 주세요." required>
+
+                    <hr>
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" placeholder="이름을 입력하세요." required>
+
+                    <label for="age">나이</label>
+                    <input type="number" id="age" name="age" min="0" step="1">
+
+                    <label for="birthdate">생년월일시분</label>
+                    <input type="datetime-local" id="birthdate" name="birthdate">
+
+                    <label for="phone">전화번호</label>
+                    <input type="tel" id="phone" name="phone" placeholder="전화번호를 입력하세요." autocomplete="on">
+                    <hr>
+                    <label for="zodiac">별자리</label>
+                    <table border="0" style="border-collapse: collapse;">
+                        <tr>
+                            <td><label for="aquarius">Aquarius</label></td>
+                            <td><input type="radio" id="aquarius" name="zodiac" value="aquarius"></td>
+                            <td><label for="pisces">Pisces</label></td>
+                            <td><input type="radio" id="pisces" name="zodiac" value="pisces"></td>
+                            <td><label for="aries">Aries</label></td>
+                            <td><input type="radio" id="aries" name="zodiac" value="aries"></td>
+                            <td><label for="taurus">Taurus</label></td>
+                            <td><input type="radio" id="taurus" name="zodiac" value="taurus"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="gemini">Gemini</label></td>
+                            <td><input type="radio" id="gemini" name="zodiac" value="gemini"></td>
+                            <td><label for="cancer">Cancer</label></td>
+                            <td><input type="radio" id="cancer" name="zodiac" value="cancer"></td>
+                            <td><label for="leo">Leo</label></td>
+                            <td><input type="radio" id="leo" name="zodiac" value="leo"></td>
+                            <td><label for="virgo">Virgo</label></td>
+                            <td><input type="radio" id="virgo" name="zodiac" value="virgo"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="libra">Libra</label></td>
+                            <td><input type="radio" id="libra" name="zodiac" value="libra"></td>
+                            <td><label for="scorpio">Scorpio</label></td>
+                            <td><input type="radio" id="scorpio" name="zodiac" value="scorpio"></td>
+                            <td><label for="sagittarius">Sagittarius</label></td>
+                            <td><input type="radio" id="sagittarius" name="zodiac" value="sagittarius"></td>
+                            <td><label for="capricorn">Capricorn</label></td>
+                            <td><input type="radio" id="capricorn" name="zodiac" value="capricorn"></td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <label for="pet">반려존재자 경험</label>
+                    <table border="0" style="border-collapse: collapse;">
+                        <tr>
+                            <td><label for="human" />Human</td>
+                            <td><input type="checkbox" id="human" name="pet" value="human"></td>
+                            <td><label for="dog" />Dog</td>
+                            <td><input type="checkbox" id="dog" name="pet" value="dog"></td>
+                            <td><label for="cat" />cat</td>
+                            <td><input type="checkbox" id="cat" name="pet" value="cat"></td>
+                            <td><label for="cactus" />cactus</td>
+                            <td><input type="checkbox" id="cactus" name="pet" value="cactus"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="alien" />alien</td>
+                            <td><input type="checkbox" id="alien" name="pet" value="alien"></td>
+                            <td><label for="reptile" />reptile</td>
+                            <td><input type="checkbox" id="reptile" name="pet" value="reptile"></td>
+                            <td><label for="fairy" />fairy</td>
+                            <td><input type="checkbox" id="fairy" name="pet" value="fairy"></td>
+                            <td><label for="fungus" />fungus</td>
+                            <td><input type="checkbox" id="fungus" name="pet" value="fungus"></td>
+                        </tr>
+
+                    </table>
+
+                    <hr>
+                    <p class="btnline">
+                        <button type="submit" class="confirm"><a href="">회원가입</a></button>
+                        <button type="submit" class="return"><a href="">취소</a></button>
+                    </p>
+
+                    <p class="btnline">
+                        <button type="button" class="link"><a href="login.html">로그인</a></button>
+                    </p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

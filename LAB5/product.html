@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>돌팔이</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="product.js" defer></script>
+    </head>
+    <body>
+        <div>
+            <h1 class="header-title text-slide"><a href="index.html">돌팔이</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">홈</a></li>
+                <li><a href="./login.html">로그인</a></li>
+                <li><a href="./signup.html">회원가입</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div id="product-container">
+                <img id="product-image" src="" alt="Product Image">  <!-- 이미지를 맨 위로 이동 -->
+                <h2 id="product-title"></h2>
+                <p id="product-description"></p>
+                <p id="product-price"></p>
+
+                <h3>리뷰</h3>
+                <ul id="review-list"></ul>
+                <div id="review-write-section"> <!-- 리뷰 작성 섹션을 div로 감쌉니다 -->
+                    <h3>리뷰 작성</h3>
+                    <form id="review-form">
+                        <input type="text" id="review-rating" placeholder="평점">
+                        <textarea id="review-content" placeholder="리뷰 내용"></textarea>
+                        <button type="submit">작성</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
