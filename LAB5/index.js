@@ -8,7 +8,10 @@ const app = express();
 const jsonFilePath = "./reviews.json"
 
 // 모든 도메인에서 모든 HTTP 메소드를 허용하는 CORS 설정
-app.use(cors());
+
+// app.use(cors({
+//   allowedHeaders: ['Content-Type', 'Cache-Control']
+// }));
 const port = 3100;
 
 // Enable preflight OPTIONS request for PUT method
@@ -21,12 +24,14 @@ app.use(express.json());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept", "Cache-Control", "Content-");
   next();
 });
 
 // API: 리뷰 데이터 읽기
 app.get('/reviews', (req, res) => {
+
+  res.setHeader('Cache-Control', 'no-store');
   fs.readFile(jsonFilePath, 'utf8', (err, data) => {
       if (err) {
           console.error(err);
@@ -39,6 +44,8 @@ app.get('/reviews', (req, res) => {
 });
 // API: 리뷰 데이터 추가
 app.post('/reviews', (req, res) => {
+
+  res.setHeader('Cache-Control', 'no-store');
   const newReview = req.body;
   
   fs.readFile(jsonFilePath, 'utf8', (err, data) => {
@@ -51,12 +58,13 @@ app.post('/reviews', (req, res) => {
           if (!reviews.productId) {
             reviews.productId = [];
           }
+          console.log(newReview, productId)
           reviews[productId].push({
-            review_id: reviews.productId.length,
-            review_text: newReview.text,
+            review_id: reviews[productId].length,
+            review_text: newReview.content,
             review_rating: newReview.rating
           });
-
+          
           fs.writeFile(jsonFilePath, JSON.stringify(reviews), 'utf8', (err) => {
               if (err) {
                   console.error(err);
@@ -69,7 +77,25 @@ app.post('/reviews', (req, res) => {
   });
 });
 
-
+// 라우트 설정
+app.get('/reviews/:productId', (req, res) => {
+  fs.readFile('reviews.json', 'utf8', (err, data) => {
+      if (err) {
+          console.error(err);
+          res.sendStatus(500);
+      } else {
+          const reviews = JSON.parse(data);
+          const productId = req.params.productId;
+          const productReviews = reviews[productId];
+          
+          if (!productReviews) {
+              res.status(404).send('No reviews found for this product');
+          } else {
+              res.json(productReviews);
+          }
+      }
+  });
+});
 
 
 app.get('/products', (req, res) => {

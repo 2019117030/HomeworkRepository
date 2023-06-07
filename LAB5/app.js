@@ -82,7 +82,6 @@ window.onload = function() {
 
         products.forEach(product => {
             let productDiv = document.createElement('div');
-            console.log(productDiv);
             productDiv.classList.add('product');
             productDiv.style.backgroundImage = `url(${product.product_image})`;
             productDiv.innerHTML = `
